@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		if (collider.tag == "EnemyTank") {
+		if (collider.tag == "EnemyTank" /* || collider.tag == "PlayerTank" */) {
 			// Explode
 
 			Tank tank = (Tank)collider.gameObject.GetComponentInParent<Tank> ();

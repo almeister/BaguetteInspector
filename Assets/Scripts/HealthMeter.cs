@@ -4,11 +4,9 @@ using System.Collections;
 public class HealthMeter : MonoBehaviour {
 
 	public float maxHealth = 100.0f;
-	public float health = 0f;
+	private float health = 0f;
 
 	private GameObject healthBar;
-
-
 
 	void Awake() {
 		healthBar = transform.FindChild ("HealthBar/Health").gameObject;
@@ -23,7 +21,7 @@ public class HealthMeter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("decreaseHealth", 1f, 1f);
+//		InvokeRepeating ("decreaseHealth", 1f, 1f);
 	}
 	
 	// Update is called once per frame
@@ -31,12 +29,12 @@ public class HealthMeter : MonoBehaviour {
 	
 	}
 
-	void decreaseHealth() {
-		health -= 2;
+	public void setHealth(float health) {
+		this.health -= health;
 		updateHealthBar ();
 	}
 
-	void updateHealthBar() {
+	private void updateHealthBar() {
 		healthBar.transform.localScale = new Vector3 (health / maxHealth, 1, 1);
 	}
 }
