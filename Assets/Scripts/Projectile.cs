@@ -39,8 +39,18 @@ public class Projectile : MonoBehaviour {
 		// Calculate distance to target
 		float target_Distance = Vector3.Distance(transform.position, target.position);
 
-		// Calculate the velocity needed to throw the object to the target at specified angle.
-		float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
+        // Calculate the velocity needed to throw the object to the target at specified angle.
+        float projectile_Velocity = 0f;
+
+        if (firingAngle <= 20f)
+        {
+            projectile_Velocity = 100f;
+            gravity = 0f;
+        }
+        else
+        {
+            projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
+        }
 
 		// Extract the X  Y componenent of the velocity
 		float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);

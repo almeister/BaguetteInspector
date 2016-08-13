@@ -9,7 +9,7 @@ public class HealthMeter : MonoBehaviour {
 	private GameObject healthBar;
 
 	void Awake() {
-		healthBar = transform.FindChild ("HealthBar/Health").gameObject;
+		healthBar = transform.FindChild ("Health").gameObject;
 
 		if (!healthBar) {
 			Debug.LogError("HealthMeter.Awake() " + name + " couldn't find a HealthBar.");
@@ -18,19 +18,13 @@ public class HealthMeter : MonoBehaviour {
 
 		health = maxHealth;
 	}
-
-	// Use this for initialization
-	void Start () {
-//		InvokeRepeating ("decreaseHealth", 1f, 1f);
-	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
 
 	public void setHealth(float health) {
-		this.health -= health;
+		this.health = health;
 		updateHealthBar ();
 	}
 

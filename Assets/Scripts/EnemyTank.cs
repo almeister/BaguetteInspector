@@ -4,11 +4,10 @@ using System.Collections;
 
 public class EnemyTank : Tank {
 
-//	private GameObject player;
-
 	public override void Awake() {
 		base.Awake ();
-//		player = GameObject.Find("/PlayerTank/UpperTank");
+
+        setupHealthMeter("/EnemyHealthBar");
 	}
 
 	public override void Update() {
@@ -16,8 +15,6 @@ public class EnemyTank : Tank {
 			SceneManager.LoadScene ("ResultsWinner");
 		}
 
-//		if (Input.GetMouseButtonDown(0)) {
-//			ProjectileLauncher.fireProjectile (transform, player.transform, 45, 50, 25);
-//		}
-	}
+        healthMeter.setHealth(health);
+    }
 }
