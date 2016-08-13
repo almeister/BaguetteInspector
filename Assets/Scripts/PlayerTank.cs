@@ -37,7 +37,7 @@ public class PlayerTank : Tank {
 	public override void OnTriggerEnter(Collider collider) {
 		if (collider.tag == "Growable") {
 //			growable = collider.gameObject.GetComponent<Growable> ();
-			ProjectileLauncher.fireProjectile (transform, enemy.transform, 45, 50, 25);
+			ProjectileLauncher.fireProjectile (transform, enemy.transform, 45, 50, 50);
 			Destroy (collider.gameObject);
 		}
 	}
